@@ -1,0 +1,46 @@
+<div class="container">
+    <h1>{{showToSee.name}}</h1>
+    <p>{{genres}}</p>
+
+    	<!-- <p>{{showToSee.genres[0]}}
+   		   {{showToSee.genres[1]}} 
+    	   {{showToSee.genres[2]}}
+    	   {{showToSee.genres[3]}}
+    	   {{showToSee.genres[4]}}
+    	   {{showToSee.genres[5]}}
+    	   {{showToSee.genres[6]}}</p> -->
+    	
+    <div class = "row">
+	    <img ng-src="{{showToSee.image.medium}}" class="img-rounded img-responsive col-md-2"  >
+	    <div class = "col-md-8">
+	    	<h3>Summary</h3>
+	    	<hr>
+	    	<p ng-bind-html="showToSee.summary | trustHTML"></p>
+	    	<h3>Cast</h3>
+	    	<hr>
+	    	<div ng-repeat ="actor in showToSee._embedded.cast" class ="row">
+	    		<img ng-if="actor.person.image.medium != null" ng-src="{{actor.person.image.medium}}" 
+	    		class="img-rounded col-md-1">
+	    		<img ng-if="actor.character.image.medium != null && actor.person.image.medium ==null" 
+	    		ng-src="{{actor.character.image.medium}}" class="img-rounded col-md-1">
+	    		<img ng-if="actor.character.image.medium == null && actor.person.image.medium ==null" 
+	    		ng-src="../views/image/no-photo.jpg " class="img-rounded col-md-1">
+	    		<p>{{actor.person.name}} as {{actor.character.name}} </p>
+	    		<br>
+	    		<br>
+	    	</div>
+	    <div>
+    </div>
+</div>
+<!-- ../views/image/no-photo.jpg -->
+<!-- <img  src="../views/test.jpg" >
+<p><br>{{showToSee._embedded.cast[0]}}</p> -->
+
+<!-- <div ng-switch on="video">
+    <div ng-switch-when="video.large">
+         code to render a large video block
+    </div>
+    <div ng-switch-default>
+        
+    </div>
+</div> -->

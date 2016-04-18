@@ -1,0 +1,24 @@
+<h1 ng-if ="shows.length > 0">Search Results</h1>
+<div  ng-repeat = "i in shows" >
+
+	  		<div class = "container">
+	  			<div class ="row">
+		  			<img class = "col-md-2" ng-src="{{i.show.image.medium}}">
+		    		<div class ="col-md-8">
+			    		<h2  >{{i.show.name}}</h2>
+			    		<p  ng-bind-html="i.show.summary | trustHTML"></p>
+			    		<a  href="/show/{{i.show.id}}" class="btn btn-warning pull-right">details</a>
+		    		</div>
+	    		</div>
+	    	</div>
+	    	<br>	
+</div>
+
+<!-- <div ng-switch on="video">
+    <div ng-switch-when="video.large">
+         code to render a large video block
+    </div>
+    <div ng-switch-default>
+        
+    </div>
+</div> -->
